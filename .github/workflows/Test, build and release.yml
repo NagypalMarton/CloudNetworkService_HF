@@ -12,15 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Print Python version
-        run: python --version
-
       - name: Check Python version
         id: check_version
         run: |
           PYTHON_VERSION=$(python --version | cut -d' ' -f2)
           echo "PYTHON_VERSION=$PYTHON_VERSION" >> $GITHUB_ENV
-          if [[ $PYTHON_VERSION < "3.10.14" ]]; then echo "UPDATE_PYTHON=true" >> $GITHUB_ENV; else echo "UPDATE_PYTHON=false" >> $GITHUB_ENV; fi
+          if [[ $PYTHON_VERSION < "3.10.12" ]]; then echo "UPDATE_PYTHON=true" >> $GITHUB_ENV; else echo "UPDATE_PYTHON=false" >> $GITHUB_ENV; fi
 
       - name: Update Python if needed
         if: ${{ env.UPDATE_PYTHON == 'true' }}
