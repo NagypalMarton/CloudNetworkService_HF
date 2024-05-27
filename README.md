@@ -7,7 +7,7 @@ Futtatható webalkalmazás [ITT](https://github.com/NagypalMarton/CloudNetworkSe
 
 ## Webalkalmazásról
 
-A tárgy keretén belül a feladat leírásban foglalt járműfelismerő és értesítő webalkalmazás készítése. Ezt egy Python nyelvben mgírt frameworkben, a Djangoban készül el Ubuntu környezetben.
+A tárgy keretén belül a feladat leírásban foglalt járműfelismerő és értesítő webalkalmazás készítése. Ezt egy Python nyelvben mgírt frameworkben, a Flaskban készül el Ubuntu alapú környezetben.
 
 ## Feladat kiírás
 A félév során mindenkinek létre kell hoznia egy fejlesztői CI/CD környezetet a saját gépén és ennek használatával egy olyan web szolgáltatást kell létrehozni ami az alábbi funkciókat látja el:
