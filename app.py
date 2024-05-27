@@ -15,23 +15,36 @@ def upload_file():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_image_file():
    if request.method == 'POST':
-        file = request.files['file']
-        image = cv2.imdecode(np.fromstring(file.read(), np.uint8), cv2.IMREAD_UNCHANGED)
+      try:
+         file = request.files['file']
+         if file is None:
+            raise ValueError("No file in request")
 
-        # Futtasd le a YOLOv3 modellt a képen
-        detections = performDetect(imagePath=image, configPath="yolov3.cfg", weightPath="yolov3.weights", metaPath="coco.data", showImage=False)
+         image = cv2.imdecode(np.fromstring(file.read(), np.uint8), cv2.IMREAD_UNCHANGED)
+         if image is None:
+            raise ValueError("Invalid image file")
 
-        # Keretezd be az autókat
-        for detection in detections:
+         # Save the image
+         filename = secure_filename(file.filename)
+         img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+         cv2.imwrite(img_path, image)
+
+         # Futtasd le a YOLOv3 modellt a képen
+         detections = performDetect(imagePath=img_path, configPath="yolov3.cfg", weightPath="yolov3.weights", metaPath="coco.data", showImage=False)
+
+         # Keretezd be az autókat
+         for detection in detections:
             if detection[0] == 'car':
-                x, y, w, h = map(int, detection[2])
-                cv2.rectangle(image, (x-w//2, y-h//2), (x+w//2, y+h//2), (0, 255, 0), 2)
+               x, y, w, h = map(int, detection[2])
+               cv2.rectangle(image, (x-w//2, y-h//2), (x+w//2, y+h//2), (0, 255, 0), 2)
 
-        # Save the image
-        filename = secure_filename(file.filename)
-        cv2.imwrite(os.path.join(app.config['UPLOAD_FOLDER'], filename), image)
+         # Save the image with bounding boxes
+         cv2.imwrite(img_path, image)
 
-        return redirect(url_for('uploaded_file', filename=filename))
+         return redirect(url_for('uploaded_file', filename=filename))
+      except Exception as e:
+         print(f"Error: {e}")
+         return str(e), 400
 
 @app.route('/display/<filename>')
 def display_image(filename):
