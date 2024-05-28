@@ -1,6 +1,11 @@
 name: Python CI-CD
 on: [push]
 
+env:
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKERHUB_KEY: ${{ secrets.DOCKER_KEY }}
+  IMAGE_NAME: cloud_network_service
+
 jobs:
   build:
 
@@ -20,6 +25,16 @@ jobs:
 
     - name: Push Docker image
       run: docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+    - name: Update values.yaml
+      run: |
+          cd helm
+          sed -i 's|APP_VERSION:.*|APP_VERSION: '${{ github.sha }}'|' values.yaml 
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add values.yaml
+          git commit -m "Update values.yaml"
+          git push
 
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
