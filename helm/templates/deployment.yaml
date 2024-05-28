@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloud_network_service
+  name: CloudNetworkService_HF
 spec:
   selector:
     matchLabels:
-      app: cloud_network_service
+      app: CloudNetworkService_HF
   template:
     metadata:
       labels:
-        app: cloud_network_service
+        app: CloudNetworkService_HF
     spec:
       containers:
-        - name: cloud_network_service
-          image: szefoka/cloud_network_service:{{ .Values.env.APP_VERSION }}
+        - name: CloudNetworkService_HF
+          image: nagypalmarton/CloudNetworkService_HF:{{ .Values.env.APP_VERSION }}
           ports:
             - name: http
               containerPort: 5000
