@@ -7,7 +7,9 @@ Futtatható webalkalmazás [ITT](https://github.com/NagypalMarton/CloudNetworkSe
 
 ## Webalkalmazásról
 
-A tárgy keretén belül a feladat leírásban foglalt járműfelismerő és értesítő webalkalmazás készítése. Ezt egy Python nyelvben mgírt frameworkben, a Flaskban készül el Ubuntu alapú környezetben.
+A tárgy keretén belül a feladat leírásban foglalt járműfelismerő és értesítő webalkalmazás készítése. Ezt egy Python nyelvben mgírt frameworkben, a Flaskban készül el Ubuntu alapú környezetben. Az alkalmazásban lehet képet és hozzá tartozó leírás feltöltését 
+- CI/CD környezet: GitHub Actions
+- Autodetektáló modell: YOLO
 
 ## Feladat kiírás
 A félév során mindenkinek létre kell hoznia egy fejlesztői CI/CD környezetet a saját gépén és ennek használatával egy olyan web szolgáltatást kell létrehozni ami az alábbi funkciókat látja el:
@@ -28,10 +30,3 @@ A házi feladat három részből áll:
 1. CI/CD környezet telepítése
 2. weboldal + autó detektálás funkció imeplementálása
 3. üzemeltetők feliratkozási funkciója
-
-Az első két részháziból progress reportot kell leadni, azaz fel kell töltenetek a fejlesztői dokumentációtok aktuális állapotát, míg a félév végén **05.14**-én vagy **05.21**-én személyesen mutatjátok be az elkészült megoldásaitokat valamely laborvezetőnek (majd küldünk ki oldalt, ahol tudtok bemutatási időpontra jelentkezni). 
-
-### Összefoglalva az alábbi határidőket tartsátok be
-- **04.14** Fejlesztői dokumentáció feltöltése, mely tartalmazza az általatok használt CI/CD környezetet
-- **04.28** Fejlesztői dokumentáció feltöltése, mely tartalmazza a képfeltöltéssel és az autók detektálásával kapcsolatos leírásokat
-- **05.12** Végleges Fejlesztői dokumentáció feltöltése és jelentkezés HF bemutatásra
