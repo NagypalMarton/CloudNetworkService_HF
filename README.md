@@ -8,7 +8,7 @@ Futtatható webalkalmazás [ITT](https://github.com/NagypalMarton/CloudNetworkSe
 ## Webalkalmazásról
 
 A tárgy keretén belül a feladat leírásban foglalt járműfelismerő és értesítő webalkalmazás készítése. Ezt egy Python nyelvben mgírt frameworkben, a Flaskban készül el Ubuntu alapú környezetben. Az alkalmazásban lehet képet és hozzá tartozó leírás feltöltését 
-- CI/CD környezet: GitHub Actions
+- CI/CD környezet: GitHub Actions + DockerHUB
 - Autodetektáló modell: YOLO
 
 ## Feladat kiírás
