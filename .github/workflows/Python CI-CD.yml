@@ -4,7 +4,7 @@ on: [push]
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKERHUB_KEY: ${{ secrets.DOCKER_KEY }}
-  IMAGE_NAME: cloud_network_service
+  IMAGE_NAME: cloud_network_service1
 
 jobs:
   build:
