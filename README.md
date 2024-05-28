@@ -1,7 +1,7 @@
 # CloudNetworkService_HF
 Felhők hálózati szolgáltatások Házi Feladat repoja
 
-[![Actions Status](https://github.com/NagypalMarton/CloudNetworkService_HF/workflows/Test,%20build%20and%20release/badge.svg)](https://github.com/NagypalMarton/CloudNetworkService_HF/actions)
+[![Actions Status](https://github.com/NagypalMarton/CloudNetworkService_HF/workflows/Python%20CI-CD.yaml/badge.svg)](https://github.com/NagypalMarton/CloudNetworkService_HF/actions)
 
 Futtatható webalkalmazás [ITT](https://github.com/NagypalMarton/CloudNetworkService_HF/releases/tag/latest) érhető el!
 
